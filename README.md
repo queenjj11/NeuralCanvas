@@ -69,3 +69,11 @@ Activations
 Output probabilities
   ↓
 Prediction
+
+## 📜 License
+
+This project is licensed under the **MIT License**.
+
+Copyright © 2026 Jia Jadhav.
+
+See the [LICENSE](LICENSE) file for the full license text.
