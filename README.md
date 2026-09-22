@@ -48,6 +48,15 @@ The Digits model accepts the original **8×8 handwritten image representation** 
 The frontend includes an interactive digit-selection interface with a live pixel-grid representation.
 
 ---
+## License
+
+This project is licensed under the **MIT License**.
+
+Copyright © 2026 Jia Jadhav.
+
+See the [LICENSE](LICENSE) file for the full license text.
+
+---
 
 ## ◉ Real Model, Real Inference
 
@@ -70,10 +79,3 @@ Output probabilities
   ↓
 Prediction
 
-## 📜 License
-
-This project is licensed under the **MIT License**.
-
-Copyright © 2026 Jia Jadhav.
-
-See the [LICENSE](LICENSE) file for the full license text.
