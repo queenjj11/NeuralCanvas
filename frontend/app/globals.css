@@ -1,0 +1,130 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/*
+  NeuralCanvas runs dark by default: the whole point is luminous data on a
+  near-black field, so the palette is defined once rather than per theme.
+  Values are OKLCH (PRD 9.3); the three.js palette mirrors them in palette.ts.
+*/
+:root {
+  --background: oklch(0.14 0.02 265);
+  --foreground: oklch(0.96 0.01 265);
+
+  --surface: oklch(0.19 0.02 265 / 0.72);
+  --card: oklch(0.19 0.02 265 / 0.72);
+  --card-foreground: oklch(0.96 0.01 265);
+  --popover: oklch(0.17 0.02 265 / 0.96);
+  --popover-foreground: oklch(0.96 0.01 265);
+
+  --muted: oklch(0.24 0.02 265);
+  --muted-foreground: oklch(0.7 0.02 265);
+
+  --primary: oklch(0.82 0.14 205);
+  --primary-foreground: oklch(0.14 0.02 265);
+  --secondary: oklch(0.24 0.02 265);
+  --secondary-foreground: oklch(0.96 0.01 265);
+  --accent: oklch(0.24 0.03 265);
+  --accent-foreground: oklch(0.96 0.01 265);
+
+  --destructive: oklch(0.62 0.22 25);
+  --destructive-foreground: oklch(0.98 0 0);
+
+  --border: oklch(1 0 0 / 0.08);
+  --input: oklch(1 0 0 / 0.12);
+  --ring: oklch(0.82 0.14 205 / 0.65);
+
+  /* Data colours — these carry meaning, never decoration (PRD 5.4). */
+  --accent-positive: oklch(0.82 0.14 205);
+  --accent-negative: oklch(0.72 0.2 350);
+  --accent-signal: oklch(0.7 0.19 295);
+
+  --radius: 0.5rem;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-positive: var(--accent-positive);
+  --color-negative: var(--accent-negative);
+  --color-signal: var(--accent-signal);
+
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-feature-settings: "cv11", "ss01";
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Numbers line up in the inspector and tooltips. */
+  .tabular {
+    font-variant-numeric: tabular-nums;
+    font-family: var(--font-mono), ui-monospace, monospace;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent-positive);
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  /* Glass panel: translucent surface, hairline border, subtle shadow. */
+  .panel {
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    backdrop-filter: blur(16px) saturate(150%);
+    box-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.45), inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
+  }
+
+  /* Small uppercase panel title, tracked wide (PRD 9.3). */
+  .micro-label {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--muted-foreground);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

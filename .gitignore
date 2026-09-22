@@ -1,0 +1,38 @@
+# Python / backend
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+*.db
+
+# Node / frontend
+node_modules/
+.next/
+out/
+dist/
+build/
+*.tsbuildinfo
+coverage/
+playwright-report/
+test-results/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# OS & IDE temporary files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+*.tmp
